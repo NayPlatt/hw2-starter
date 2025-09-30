@@ -37,7 +37,7 @@ let rec pow x p =
   else x * pow x (p - 1)
 
 let rec fac n = 
-  if n = 1 then 1 
+  if n = 0 then 1 
   else n * fac (n - 1)
 
 (*****************)
@@ -47,14 +47,12 @@ let rec fac n =
 let rec get_nth ((idx:int), (lst: 'a list)) = 
   match lst with 
   | [] -> failwith "Index out of bounds" 
-  | h :: t -> id idx = 0 then h else get_nth (idx - 1, t)
+  | h :: t -> if idx = 0 then h else get_nth (idx - 1, t)
 
 let larger lst1 lst2 = 
   let len1 = List.length lst1 in 
   let len2 = List,length lst2 in 
-  if len1 >len2 then lst2
-  else []
-
+  if len1 >= len2 then lst2 else lst2 
 
 let sum lst1 lst2 = 
   let sum_list lst = List.fold_left ( + ) 0 lst in 
